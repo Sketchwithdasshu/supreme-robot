@@ -8,63 +8,107 @@
     <title>Sketch With Dasshu</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
         * {
-    margin: 0px;
-    padding: 0px;
-}
-        p {
-            font-family: Poppins;
+            margin: 0;
+            padding: 0;
         }
 
-.nav1 {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: black;
-}
+        body {
+            font-family: Poppins, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
 
-.nav1 ul {
-    list-style-type: none;
-    display: flex;
-}
+        .dark-mode {
+            background-color: black;
+            color: green;
+        }
+        
+        .dark-mode p {
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-.nav1 li {
-    padding: 5px;
-    margin: 5px;
-}
+        p {
+            font-family: Poppins, sans-serif;
+            transition: 0.3s;
+        }
 
-.nav1 a {
-    color: white;
-    text-decoration: none;
-    font-family: poppins;
-    transition: 0.4s;
-    padding: 10px;
-}
+        .nav1 {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: black;
+        }
 
-.nav1 a:hover {
-    background-color: rgb(47, 47, 48);
-    border-radius: 7px;
-}
+        .nav1 ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
 
-footer {
-    margin: 5px;
-    padding: 5px;
-    text-align: center;
-    color: gray;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-}
+        .nav1 li {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .nav1 a {
+            color: white;
+            text-decoration: none;
+            font-family: Poppins, sans-serif;
+            transition: 0.4s;
+            padding: 10px;
+        }
+
+        .nav1 a:hover {
+            background-color: rgb(47, 47, 48);
+            border-radius: 7px;
+        }
+
+        .theme-toggle {
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: Poppins, sans-serif;
+        }
+
+        .theme-toggle.dark {
+            background-color: black;
+            color: white;
+        }
+
+        footer {
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            color: gray;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         .instaid {
-            font-size: 40px;
-            color: pink;
+            font-size: 22px;
+            color: #fc4563;
             font-weight: bold;
         }
 
-.MyH {
-    padding: 4px;
-    margin: 4px;
-    text-align: center;
-    color: red;
-    font-size: 300%;
-}
+        .instaid:hover {
+            color: rgb(153, 0, 0);
+        }
+
+        .instaid:active {
+            color: lightgreen;
+        }
+        .instaid:visited {
+            color: rgb(206, 143, 153);
+        }
+
+        .MyH {
+            padding: 4px;
+            margin: 4px;
+            text-align: center;
+            color: red;
+            font-size: 300%;
+        }
     </style>
 </head>
 
@@ -76,22 +120,35 @@ footer {
                 <li><a href="/Nav_pages/About.html">About</a></li>
                 <li><a href="/Nav_pages/Contact.html">Contact</a></li>
                 <li><a href="/Nav_pages/Registration.html">Registration</a></li>
+                <li><button class="theme-toggle" id="theme-toggle">Dark Mode</button></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1 class="MyH">Welcome Sketch With Dasshu</h1>
-<p>Here's my Instagram account, once check out for some sketches or to contact me.</p>
-<a href="https://instagram.com/sketch.professional/" title="I'm here, Click me!" class="instaid">@sketch.professional</a>
+        <h1 class="MyH">Welcome to Sketch With Dasshu</h1>
+        <p>Here's my Instagram account, check it out for some sketches or to contact me.</p>
+        <a href="https://instagram.com/sketch.professional/" target="_blank" title="I'm here, Click me!"
+            class="instaid">@sketch.professional</a>
     </main>
 
     <footer>
-        Copyright&nbsp;2024&nbsp;&copy;&nbsp;Sketchwithdasshu | All rightsm reserved
+        Copyright&nbsp;2024&nbsp;&copy;&nbsp;Sketchwithdasshu | All rights reserved
     </footer>
 
-    <script src="/script.js">
-        alert("Hey! Welcome to our website! Press 'OK' To continue")
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            var themeToggleBtn = document.getElementById('theme-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggleBtn.textContent = 'Light Mode';
+                themeToggleBtn.classList.add('dark');
+            } else {
+                themeToggleBtn.textContent = 'Dark Mode';
+                themeToggleBtn.classList.remove('dark');
+            }
+        });
+
     </script>
 </body>
 
